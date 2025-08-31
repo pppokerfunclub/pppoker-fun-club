@@ -73,7 +73,7 @@ export default function Home() {
             <Link
               className="w-full md:w-auto"
               target="_blank"
-              href={process.env.NEXT_PUBLIC_URL as string}
+              href={process.env.NEXT_PUBLIC_URL || "#"}
             >
               <Button variant="default" className="w-full md:w-auto">
                 Присоединиться
@@ -82,7 +82,7 @@ export default function Home() {
             <Link
               className="w-full md:w-auto"
               target="_blank"
-              href={process.env.NEXT_PUBLIC_VK as string}
+              href={process.env.NEXT_PUBLIC_VK || "#"}
             >
               <Button variant="outline" className="w-full md:w-auto">
                 Группа ВКонтакте

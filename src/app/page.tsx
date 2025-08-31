@@ -5,6 +5,8 @@ import person from "@public/assets/person.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const containerVariants = {
@@ -27,6 +29,12 @@ export default function Home() {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: { opacity: 1, y: 0, scale: 1 },
   };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("https://t.me/ilyaspokerbot?start=valueclub_targerbarlabs");
+  }, []);
 
   return (
     <div className="h-screen w-full overflow-hidden relative flex flex-col justify-center">

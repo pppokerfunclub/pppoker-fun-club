@@ -1,0 +1,9 @@
+{
+  "name": "roboton-website",
+  "compatibility_date": "2025-05-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": ".vercel/output/static",
+  "vars": {
+    "NODE_VERSION": "20.3.0"
+  }
+}

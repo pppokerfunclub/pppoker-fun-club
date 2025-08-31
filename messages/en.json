@@ -1,0 +1,34 @@
+{
+  "title": "by.studio",
+  "header": {
+    "telegram_link": "Go to Telegram"
+  },
+  "carousel": {
+    "deposit_volume": "DEPOSIT VOLUME",
+    "deposit_value": "x3",
+    "monthly_revenue": "MONTHLY REVENUE",
+    "monthly_value": "$8,000+",
+    "active_users": "ACTIVE USERS",
+    "users_value": "+2,000,000"
+  },
+  "about": {
+    "title_part1": "Development",
+    "title_part2": "of chatbots, web applications and websites for",
+    "title_part3": "automation",
+    "title_part4": "and",
+    "title_part5": "business growth",
+    "title_part6": ".",
+    "description": "Tools that automate processes, simplify work and bring profit.",
+    "button_text": "Go to Telegram →"
+  },
+  "footer": {
+    "copyright": "by.studio © 2025 all rights reserved.",
+    "author": "hakowsky"
+  },
+  "meta": {
+    "title": "by.studio - Chatbot & Web Application Development",
+    "description": "Development of chatbots, web applications and websites for automation and business growth. Tools that automate processes, simplify work and bring profit.",
+    "keywords": "chatbot development, web applications, business automation, telegram bots, web development, by.studio",
+    "app_name": "by.studio"
+  }
+}

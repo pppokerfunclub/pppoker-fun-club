@@ -4,6 +4,7 @@ import { Button, Container } from "@/components";
 import person from "@public/assets/person.jpg";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   const containerVariants = {
@@ -31,7 +32,7 @@ export default function Home() {
     <div className="h-screen w-full overflow-hidden relative flex flex-col justify-center">
       <Container className="h-full relative">
         <motion.div
-          className="flex flex-col w-2/3 h-full justify-center relative"
+          className="flex flex-col w-full md:w-2/3 h-full justify-end md:justify-center relative pb-5 md:pb-0"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -39,11 +40,12 @@ export default function Home() {
           <motion.h1
             variants={itemVariants}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+            className="text-center md:text-left"
           >
             <span className="italic text-primary">PPPOKER</span> FUN CLUB
           </motion.h1>
           <motion.p
-            className="mt-6"
+            className="mt-6 text-center md:text-left"
             variants={itemVariants}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           >
@@ -53,7 +55,7 @@ export default function Home() {
             процесс и энергия игры.
           </motion.p>
           <motion.p
-            className="mt-4"
+            className="mt-4 hidden md:block"
             variants={itemVariants}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           >
@@ -64,12 +66,28 @@ export default function Home() {
             раздаче.
           </motion.p>
           <motion.div
-            className="mt-8 flex items-center gap-2"
+            className="mt-8 flex flex-col md:flex-row items-center gap-2"
             variants={buttonVariants}
             transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
           >
-            <Button variant="default">Присоединиться</Button>
-            <Button variant="outline">Группа ВКонтакте</Button>
+            <Link
+              className="w-full md:w-auto"
+              target="_blank"
+              href={process.env.NEXT_PUBLIC_URL as string}
+            >
+              <Button variant="default" className="w-full md:w-auto">
+                Присоединиться
+              </Button>
+            </Link>
+            <Link
+              className="w-full md:w-auto"
+              target="_blank"
+              href={process.env.NEXT_PUBLIC_VK as string}
+            >
+              <Button variant="outline" className="w-full md:w-auto">
+                Группа ВКонтакте
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -96,6 +114,7 @@ export default function Home() {
               delay: 0.5,
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden" />
         </div>
       </Container>
     </div>

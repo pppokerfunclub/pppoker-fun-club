@@ -76,7 +76,7 @@ export default function Home() {
               href={process.env.NEXT_PUBLIC_URL || "#"}
             >
               <Button variant="default" className="w-full md:w-auto">
-                Группа ВКонтакте
+                Присоединиться
               </Button>
             </Link>
           </motion.div>

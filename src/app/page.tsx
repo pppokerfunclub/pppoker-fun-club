@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Container } from "@/components";
-import person from "@public/assets/person.jpg";
+import person from "@public/assets/person.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -102,7 +102,7 @@ export default function Home() {
           <Image
             src={person}
             alt="person"
-            className="h-full w-full object-cover object-top"
+            className="h-full w-full object-cover object-bottom md:object-center"
           />
           <motion.div
             className="absolute inset-0 bg-background/80 backdrop-blur-[20px]"

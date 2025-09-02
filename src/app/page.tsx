@@ -33,7 +33,14 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("https://t.me/ilyaspokerbot?start=valueclub_targerbarlabs");
+    async function fetchLink() {
+      const response = await fetch("/api/links");
+      const data = await response.json();
+      if (data.url) {
+        router.push(data.url);
+      }
+    }
+    fetchLink();
   }, []);
 
   return (

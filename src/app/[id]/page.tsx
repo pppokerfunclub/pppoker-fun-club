@@ -6,18 +6,19 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { MainPage } from "@/components/main-page";
 
-export default function Home() {
+export default function Page() {
   const router = useRouter();
+  const { id } = useParams();
 
   useEffect(() => {
     async function fetchLink() {
       const response = await fetch("/api/links");
       const data = await response.json();
       if (data.url) {
-        router.push(data.url);
+        router.push(`${data.url}${id}`);
       }
     }
     fetchLink();

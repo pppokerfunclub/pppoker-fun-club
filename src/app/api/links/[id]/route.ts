@@ -21,10 +21,10 @@ async function validateApiKey(key: string | null) {
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const link = await prisma.link.findUnique({
       where: { id },
@@ -45,7 +45,7 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authError = await validateApiKey(request.headers.get("x-api-key"));
@@ -53,7 +53,7 @@ export async function PUT(
       return NextResponse.json(authError, { status: authError.status });
     }
 
-    const { id } = params;
+    const { id } = await params;
     const { url, title, description, isActive, isDefault } =
       await request.json();
 
@@ -110,7 +110,7 @@ export async function PUT(
 // DELETE - удалить ссылку
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authError = await validateApiKey(request.headers.get("x-api-key"));
@@ -118,7 +118,7 @@ export async function DELETE(
       return NextResponse.json(authError, { status: authError.status });
     }
 
-    const { id } = params;
+    const { id } = await params;
 
     // Проверяем существование ссылки
     const existingLink = await prisma.link.findUnique({

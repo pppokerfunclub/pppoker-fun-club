@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  { params }: { params: { shortId: string } }
+  { params }: { params: Promise<{ shortId: string }> }
 ) {
   try {
-    const { shortId } = params;
+    const { shortId } = await params;
 
     const link = await prisma.link.findUnique({
       where: { shortId },

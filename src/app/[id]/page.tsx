@@ -1,28 +1,39 @@
 "use client";
 
-import { Button, Container } from "@/components";
-import person from "@public/assets/person.png";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { MainPage } from "@/components/main-page";
 
 export default function Page() {
   const router = useRouter();
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchLink() {
-      const response = await fetch("/api/links");
-      const data = await response.json();
-      if (data.url) {
-        router.push(`${data.url}${id}`);
+    async function handleRedirect() {
+      try {
+        setLoading(true);
+
+        const response = await fetch(`/api/redirect/${id}`);
+        const data = await response.json();
+
+        if (response.ok && data.url) {
+          window.location.href = data.url;
+        } else {
+          setError(data.error || "Ссылка не найдена");
+          setLoading(false);
+        }
+      } catch (err) {
+        setError("Произошла ошибка при обработке ссылки");
+        setLoading(false);
       }
     }
-    fetchLink();
-  }, []);
+
+    if (id) {
+      handleRedirect();
+    }
+  }, [id]);
 
   return <MainPage />;
 }
